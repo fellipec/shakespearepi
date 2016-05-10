@@ -1,3 +1,8 @@
+#! python3
+
+#Use this file to get the Twitter Access Tokens for OAuthHandler
+#You should provide your app consumer_key and consumer_secret
+
 import tweepy
 
 consumer_key="[INSERT YOUR DATA HERE]"

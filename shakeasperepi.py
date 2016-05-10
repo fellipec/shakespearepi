@@ -1,4 +1,8 @@
 #! python3
+
+#The pg100.txt file can be downloaded in Project Gutenberg page at https://www.gutenberg.org/ebooks/100.txt.utf-8
+#William Shakespeake's works are now public domain. 
+
 import tweepy
 import time
 
@@ -18,8 +22,8 @@ def where_stop():
 
 consumer_key="[INSERT YOUR DATA HERE]"
 consumer_secret="[INSERT YOUR DATA HERE]"
-access_token_key="[INSERT YOUR DATA HERE]"
-access_token_secret="[INSERT YOUR DATA HERE]"
+access_token_key="[INSERT YOUR DATA HERE]" #use shakespearepi_gettoken.py to get this data
+access_token_secret="[INSERT YOUR DATA HERE]" #use shakespearepi_gettoken.py to get this data
 
 auth = tweepy.OAuthHandler(consumer_key,consumer_secret)
 auth.set_access_token(access_token_key,access_token_secret)
