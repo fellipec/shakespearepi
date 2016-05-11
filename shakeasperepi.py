@@ -35,19 +35,18 @@ lastline = 0
 stopedat = where_stop()
 print("Interrompido na linha:" , stopedat)
 
-continuar = True
-
 for line in f:
     lastline += 1
     if not(line.strip() == ""):
         if lastline > stopedat:                  
             print(line.strip())
-	    while continuar:
-	    	try:
-			api.update_status(line.strip())
-            		remember_where_stop(lastline)
-			continuar = False
-		except:
-			continuar = True
+            continuar = True
+	        while continuar:
+	    	     try:
+			          api.update_status(line.strip())
+            		  remember_where_stop(lastline)
+			          continuar = False
+		         except:
+		 	          continuar = True
             time.sleep(45) 
             
