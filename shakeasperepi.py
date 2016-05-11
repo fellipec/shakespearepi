@@ -41,12 +41,12 @@ for line in f:
         if lastline > stopedat:                  
             print(line.strip())
             continuar = True
-	        while continuar:
-	    	     try:
-			          api.update_status(line.strip())
-            		  remember_where_stop(lastline)
-			          continuar = False
-		         except:
-		 	          continuar = True
+            while continuar:
+                 try:
+                      api.update_status(line.strip())
+                      remember_where_stop(lastline)
+                      continuar = False
+                 except:
+                      continuar = True
             time.sleep(45) 
             
