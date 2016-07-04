@@ -1,8 +1,10 @@
-#!/usr/bin/python3
+#! python3
 # coding=UTF-8
 import tweepy
 import time
 import RPi.GPIO as GPIO
+
+
 
 #The pg100.txt file can be downloaded in Project Gutenberg page at https://www.gutenberg.org/ebooks/100.txt.utf-8
 #William Shakespeake's works are now public domain.
@@ -13,6 +15,7 @@ ledgreen = [2,3,4]
 ledyellow = [17,27]
 ledred = [22,10,11]
 buzzer = 9
+
 
 #GPIO Init
 GPIO.cleanup
@@ -30,15 +33,12 @@ for l in ledred:
 GPIO.setup(buzzer, GPIO.OUT)
 GPIO.output(buzzer, False)
 
-### ***Functions*** ###
 
-#Lembra-se de onde parou para continuar depois
 def remember_where_stop(linenumber):
     r = open("remember.txt","w")
     r.write(str(linenumber))
     r.close
 
-#Recupera o numero da linha que parou
 def where_stop():
     try:
         r = open("remember.txt","r")
@@ -48,7 +48,6 @@ def where_stop():
     except:
         return 0
 
-#Grava arquivo de log
 def dolog(logtext):
     try:
         l = open("logshakespeare.txt","a")
@@ -123,7 +122,7 @@ for line in f:
             continuar = True
             while continuar:
                 try:
-                    api.update_status(line.strip())
+                    api.update_status('* ' +  line.strip() + ' *')
                     remember_where_stop(lastline)
                     continuar = False
                 except tweepy.error.TweepError as e:
@@ -138,6 +137,6 @@ for line in f:
                         blinkred(300)
                 solidgreen(False)
                 if duplicado:
-                    blinkyellow(45)
+                    blinkyellow(37)
                 else:
-                    blinkgreen(45)
+                    blinkgreen(37)
